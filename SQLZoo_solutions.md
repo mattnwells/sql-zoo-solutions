@@ -1,4 +1,4 @@
-# SQLZoo-exercises
+# SQLZoo Exercises
 My solutions to SQLZoo quesitons.
 
 ## SELECT Basics
