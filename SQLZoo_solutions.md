@@ -1,7 +1,7 @@
 # SQLZoo Exercises
 My solutions to SQLZoo quesitons.
 
-## SELECT Basics
+## SELECT basics
 
 1. The example uses a WHERE clause to show the population of 'France'. Note that strings (pieces of text that are data) should be in 'single quotes'; Modify it to show the population of Germany.
 ```sql
@@ -22,4 +22,11 @@ WHERE name IN ('Sweden', 'Norway', 'Denmark');
 SELECT name, area 
 FROM world
 WHERE area BETWEEN 200000 AND 250000;
+```
+## SELECT from world
+
+1. Observe the result of running this SQL command to show the name, continent and population of all countries.
+```sql
+SELECT name, continent, population 
+FROM world
 ```
