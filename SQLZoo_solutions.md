@@ -23,6 +23,7 @@ SELECT name, area
 FROM world
 WHERE area BETWEEN 200000 AND 250000;
 ```
+
 ## SELECT from world
 
 1.
@@ -111,7 +112,12 @@ WHERE LEFT(name, 1) = LEFT(capital, 1) AND name <> capital;
 ```sql
 SELECT name
 FROM world
-WHERE name LIKE '%a%' AND name LIKE '%e%' AND name LIKE '%i%' AND name LIKE '%o%' AND name LIKE '%u%' AND name NOT LIKE '% %';
+WHERE name LIKE '%a%' AND 
+      name LIKE '%e%' AND 
+      name LIKE '%i%' AND 
+      name LIKE '%o%' AND 
+      name LIKE '%u%' AND 
+      name NOT LIKE '% %';
 ```
 ```sql
 
