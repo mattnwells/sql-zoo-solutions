@@ -119,15 +119,79 @@ WHERE name LIKE '%a%' AND
       name LIKE '%u%' AND 
       name NOT LIKE '% %';
 ```
+  
+## SELECT from nobel
+
+1.
+```sql
+SELECT yr, subject, winner
+FROM nobel
+WHERE yr = 1950;
+```
+
+2.
 ```sql
 
 ```
+
+3.
 ```sql
 
 ```
+
+4.
 ```sql
 
 ```
+
+5.
 ```sql
 
 ```
+
+6.
+```sql
+
+```
+
+7.
+```sql
+
+```
+
+8.
+```sql
+
+```
+
+9.
+```sql
+
+```
+
+10.
+```sql
+
+```
+
+11.
+```sql
+
+```
+
+12.
+```sql
+
+```
+
+13.
+```sql
+
+```
+
+14.
+```sql
+
+```
+
+## SELLECT in SELECT
