@@ -194,4 +194,4 @@ WHERE yr = 1950;
 
 ```
 
-## SELLECT in SELECT
+## SELECT in SELECT
