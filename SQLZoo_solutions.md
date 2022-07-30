@@ -131,6 +131,200 @@ WHERE yr = 1950;
 
 2.
 ```sql
+SELECT winner
+FROM nobel
+WHERE yr = 1962 AND subject = 'literature';
+```
+
+3.
+```sql
+SELECT yr, subject 
+FROM nobel
+WHERE winner = 'Albert Einstein';
+```
+
+4.
+```sql
+SELECT winner
+FROM nobel
+WHERE subject = 'peace' AND yr >= 2000;
+```
+
+5.
+```sql
+SELECT yr, subject, winner
+FROM nobel
+WHERE yr >= 1980 AND yr <= 1989 AND subject = 'literature';
+```
+
+6.
+```sql
+SELECT * 
+FROM nobel
+WHERE winner IN ('Theodore Roosevelt', 'Woodrow Wilson', 'Jimmy Carter', 'Barack Obama');
+```
+
+7.
+```sql
+SELECT winner
+FROM nobel
+WHERE winner LIKE 'John %';
+```
+
+8.
+```sql
+SELECT *
+FROM nobel
+WHERE subject = 'physics' AND yr = 1980
+   OR subject = 'chemistry' AND yr = 1984;
+```
+
+9.
+```sql
+SELECT *
+FROM nobel
+WHERE yr = 1980 AND NOT subject IN ('chemistry', 'medicine');
+```
+
+10.
+```sql
+SELECT *
+FROM nobel
+WHERE subject = 'medicine' AND yr < 1910 
+   OR subject = 'literature' AND yr >= 2004;
+```
+
+11.
+```sql
+SELECT *
+FROM nobel
+WHERE winner = 'peter grünberg';
+```
+
+12.
+```sql
+SELECT * 
+FROM nobel
+WHERE winner = 'eugene o' + char(39) + 'neill';
+```
+
+13.
+```sql
+SELECT winner, yr, subject
+FROM nobel
+WHERE winner LIKE 'Sir %' ORDER BY yr DESC, winner;
+```
+
+14.
+```sql
+SELECT winner, subject
+FROM nobel
+WHERE yr = 1984
+ORDER BY CASE WHEN subject IN ('physics', 'chemistry') THEN 1 ELSE 0 END, subject, winner;
+```
+
+## SELECT in SELECT
+
+1.
+```sql
+SELECT name 
+FROM world
+WHERE population >
+     (SELECT population FROM world
+      WHERE name='Russia');
+```
+
+2.
+```sql
+SELECT name
+FROM world
+WHERE continent = 'Europe' AND gdp/population >
+     (SELECT gdp/population FROM world 
+      WHERE name = 'United Kingdom');
+```
+
+3.
+```sql
+SELECT name, continent
+FROM world
+WHERE continent IN
+    (SELECT continent FROM world
+     WHERE name IN ('Argentina', 'Australia'))
+ORDER BY name;
+```
+
+4.
+```sql
+SELECT name, population
+FROM world
+WHERE population >
+     (SELECT population FROM world
+      WHERE name = 'United Kingdom') AND population <
+     (SELECT population FROM world
+      WHERE name = 'Germany');
+```
+
+5.
+```sql
+SELECT name, 
+       CONCAT(ROUND(population/(SELECT population FROM world WHERE name = 'Germany')*100, 0), '%') AS 'percentage'
+FROM world
+WHERE continent = 'Europe';
+```
+
+6.
+```sql
+SELECT name
+FROM world
+WHERE gdp > ALL(SELECT gdp
+                FROM world
+                WHERE continent = 'Europe' AND gdp > 0);
+```
+
+7.
+```sql
+SELECT continent, name, area FROM world x
+  WHERE area >= ALL (SELECT area FROM world y
+        WHERE y.continent = x.continent
+          AND area > 0);
+```
+
+8.
+```sql
+SELECT continent, name, area FROM world x
+  WHERE area >= ALL (SELECT area FROM world y
+        WHERE y.continent= x.continent
+          AND area > 0);
+```
+
+9.
+```sql
+SELECT name, continent, population
+FROM world x
+WHERE 25000000 >= ALL(SELECT population
+                      FROM world y
+                      WHERE x.continent = y.continent AN   D y.population > 0);
+```
+
+10.
+```sql
+SELECT name, continent FROM world x
+  WHERE population >= ALL(SELECT population*3
+                         FROM world y
+                         WHERE x.continent = y.continent
+                         and y.name != x.name)
+```
+
+## SUM and COUNT
+
+1.
+```sql
+SELECT SUM(population) AS 'world population'
+FROM world
+```
+
+2.
+```sql
 
 ```
 
@@ -179,19 +373,6 @@ WHERE yr = 1950;
 
 ```
 
-12.
-```sql
+##JOIN
 
-```
 
-13.
-```sql
-
-```
-
-14.
-```sql
-
-```
-
-## SELECT in SELECT
