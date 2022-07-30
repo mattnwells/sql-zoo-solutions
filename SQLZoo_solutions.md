@@ -3,11 +3,11 @@ My solutions to [SQLZOO Tutoral](http://sqlzoo.net/wiki/SQL_Tutorial).
 
 Table to Contents:
 
-[SELECT basics](#SELECT-basics)
-[SELECT from world](#SELECT-from-world)
-[SELECT from nobel](#SELECT-from-nobel)
-[SELECT in SELECT](#SELECT-in-SELECT)
-[SUM and COUNT](#SUM-and-COUNT)
+1. [SELECT basics](#SELECT-basics)
+2. [SELECT from world](#SELECT-from-world)
+3. [SELECT from nobel](#SELECT-from-nobel)
+4. [SELECT in SELECT](#SELECT-in-SELECT)
+5. [SUM and COUNT](#SUM-and-COUNT)
 
 ## SELECT basics
 
