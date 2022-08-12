@@ -320,7 +320,7 @@ SELECT name, continent FROM world x
   WHERE population >= ALL(SELECT population*3
                          FROM world y
                          WHERE x.continent = y.continent
-                         and y.name != x.name)
+                         and y.name != x.name);
 ```
 
 ## SUM and COUNT
@@ -328,7 +328,64 @@ SELECT name, continent FROM world x
 1.
 ```sql
 SELECT SUM(population) AS 'world population'
+FROM world;
+```
+
+2.
+```sql
+SELECT DISTINCT(continent)
+FROM world;
+```
+
+3.
+```sql
+SELECT SUM(gdp)
 FROM world
+WHERE continent = 'Africa';
+```
+
+4.
+```sql
+SELECT COUNT(name)
+FROM world
+WHERE area >= 1000000;
+```
+
+5.
+```sql
+SELECT SUM(population)
+FROM world
+WHERE name IN ('Estonia', 'Latvia', 'Lithuania');
+```
+
+6.
+```sql
+SELECT continent, COUNT(name)
+FROM world
+GROUP BY continent;
+```
+
+7.
+```sql
+SELECT continent, COUNT(name)
+FROM world
+WHERE population >= 10000000
+GROUP BY continent;
+```
+
+8.
+```sql
+SELECT continent
+FROM world
+GROUP BY continent
+HAVING SUM(population) >= 100000000;
+```
+
+##JOIN
+
+1.
+```sql
+
 ```
 
 2.
@@ -374,6 +431,7 @@ FROM world
 10.
 ```sql
 
+
 ```
 
 11.
@@ -381,6 +439,16 @@ FROM world
 
 ```
 
-##JOIN
+12.
+```sql
+
+```
+
+13.
+```sql
+
+```
+
+##More JOIN
 
 
