@@ -8,6 +8,8 @@ Table to Contents:
 3. [SELECT from nobel](#SELECT-from-nobel)
 4. [SELECT in SELECT](#SELECT-in-SELECT)
 5. [SUM and COUNT](#SUM-and-COUNT)
+6. [JOIN](#JOIN)
+7. [More JOIN](#More-JOIN)
 
 ## SELECT basics
 
@@ -385,68 +387,96 @@ HAVING SUM(population) >= 100000000;
 
 1.
 ```sql
-
+SELECT matchid, player 
+FROM goal 
+WHERE teamid = 'GER';
 ```
 
 2.
 ```sql
-
+SELECT id, stadium, team1, team2
+FROM game
+WHERE id = 1012;
 ```
 
 3.
 ```sql
-
+SELECT player, teamid, stadium, mdate
+FROM game JOIN goal ON (game.id=goal.matchid)
+WHERE teamid = 'GER';
 ```
 
 4.
 ```sql
-
+SELECT team1, team2, player
+FROM game JOIN goal ON (game.id = goal.matchid)
+WHERE player LIKE 'Mario%';
 ```
 
 5.
 ```sql
-
+SELECT player, teamid, coach, gtime
+FROM goal JOIN eteam ON (goal.teamid = eteam.id)
+WHERE gtime<=10;
 ```
 
 6.
 ```sql
-
+SELECT mdate, teamname
+FROM game JOIN eteam ON (team1 = eteam.id)
+WHERE coach LIKE 'Fernando Santos';
 ```
 
 7.
 ```sql
-
+SELECT player
+FROM goal JOIN game ON (game.id = goal.matchid)
+WHERE stadium = 'National Stadium, Warsaw';
 ```
 
 8.
 ```sql
-
+SELECT DISTINCT player
+FROM game JOIN goal ON matchid = id 
+WHERE (team1 = 'GER' OR team2 = 'GER') 
+AND teamid != 'GER';
 ```
 
 9.
 ```sql
-
+SELECT teamname, COUNT(*)
+FROM eteam JOIN goal ON id=teamid
+GROUP BY teamname;
 ```
 
 10.
 ```sql
-
-
+SELECT stadium, COUNT(*)
+FROM goal JOIN game ON goal.matchid = game.id
+GROUP BY stadium;
 ```
 
 11.
 ```sql
-
+SELECT matchid, mdate, COUNT(*)
+FROM game JOIN goal ON matchid = id
+WHERE (team1 = 'POL' OR team2 = 'POL')
+GROUP BY mdate, matchid;
 ```
 
 12.
 ```sql
-
+SELECT matchid, mdate, COUNT(*)
+FROM game JOIN goal ON matchid = id
+WHERE teamid = 'GER'
+GROUP BY mdate, matchid;
 ```
 
 13.
 ```sql
-
+SELECT mdate, team1, SUM(CASE WHEN teamid=team1 THEN 1 ELSE 0 END)score1, team2, SUM(CASE WHEN teamid=team2 THEN 1 ELSE 0 END)score2
+FROM game LEFT JOIN goal ON matchid = id
+GROUP BY mdate, matchid, team1, team2;
 ```
 
 ##More JOIN
