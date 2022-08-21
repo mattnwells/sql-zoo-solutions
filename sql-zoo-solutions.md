@@ -1,5 +1,5 @@
 # SQLZoo Exercises
-Solutions to [SQLZOO Tutorals](http://sqlzoo.net/wiki/SQL_Tutorial).
+Solutions to [SQLZOO Tutoral](http://sqlzoo.net/wiki/SQL_Tutorial).
 
 Table to Contents:
 
