@@ -1,15 +1,15 @@
 # SQLZoo Exercises
-My solutions to [SQLZOO Tutoral](http://sqlzoo.net/wiki/SQL_Tutorial).
+Solutions to [SQLZOO Tutorals](http://sqlzoo.net/wiki/SQL_Tutorial).
 
 Table to Contents:
 
-1. [SELECT basics](#SELECT-basics)
-2. [SELECT from world](#SELECT-from-world)
-3. [SELECT from nobel](#SELECT-from-nobel)
-4. [SELECT in SELECT](#SELECT-in-SELECT)
-5. [SUM and COUNT](#SUM-and-COUNT)
-6. [JOIN](#JOIN)
-7. [More JOIN](#More-JOIN)
+* [SELECT basics](#SELECT-basics)
+* [SELECT from world](#SELECT-from-world)
+* [SELECT from nobel](#SELECT-from-nobel)
+* [SELECT in SELECT](#SELECT-in-SELECT)
+* [SUM and COUNT](#SUM-and-COUNT)
+* [JOIN](#JOIN)
+* [More JOIN](#More-JOIN)
 
 ## SELECT basics
 
