@@ -481,4 +481,101 @@ GROUP BY mdate, matchid, team1, team2;
 
 ##More JOIN
 
+1.
+```sql
+SELECT id, title
+FROM movie
+WHERE yr=1962;
+```
+
+2.
+```sql
+SELECT yr
+FROM movie
+WHERE title = 'Citizen Kane';
+```
+
+3.
+```sql
+SELECT id, title, yr
+FROM movie
+WHERE title LIKE '%Star trek%'
+ORDER BY yr;
+```
+
+4.
+```sql
+SELECT id
+FROM actor
+WHERE name = 'Glenn Close';
+```
+
+5.
+```sql
+SELECT id
+FROM movie
+WHERE title = 'Casablanca';
+```
+
+6.
+```sql
+SELECT actor.name
+FROM actor JOIN casting ON casting.actorid = actor.id
+WHERE casting.movieid = 27;
+```
+
+7.
+```sql
+SELECT name
+FROM actor JOIN casting ON casting.actorid = actor.id
+JOIN movie ON actor.id = casting.movieid
+WHERE title = 'Alien';
+```
+
+8.
+```sql
+SELECT movie.title
+FROM movie JOIN casting ON casting.movieid = movie.id
+JOIN actor ON actor.id = casting.actorid
+WHERE actor.name = 'Harrison Ford';
+```
+
+9.
+```sql
+
+```
+
+10.
+```sql
+
+```
+
+11.
+```sql
+
+```
+
+12.
+```sql
+
+```
+
+13.
+```sql
+
+```
+
+14.
+```sql
+
+```
+
+15.
+```sql
+
+```
+
+
+
+
 
