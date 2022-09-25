@@ -10,6 +10,7 @@ Table to Contents:
 * [SUM and COUNT](#SUM-and-COUNT)
 * [JOIN](#JOIN)
 * [More JOIN](#More-JOIN)
+* [Using NULL](#Using-NULL)
 
 ## SELECT basics
 
@@ -542,40 +543,80 @@ WHERE actor.name = 'Harrison Ford';
 
 9.
 ```sql
-
+SELECT title
+FROM movie JOIN casting ON movie.id = casting.movieid
+JOIN actor ON casting.actorid = actor.id
+WHERE name = 'Harrison Ford' AND ord != 1;
 ```
 
 10.
 ```sql
-
+SELECT title, name
+FROM movie JOIN casting ON casting.movieid = movie.id
+JOIN actor ON actor.id = casting.actorid
+WHERE movie.yr = 1962 AND casting.ord = 1;
 ```
 
 11.
 ```sql
-
+SELECT yr, COUNT(title)
+FROM movie JOIN casting ON movie.id = movieid
+JOIN actor   ON actorid=actor.id
+WHERE name = 'Rock Hudson'
+GROUP BY yr
+HAVING COUNT(title) >= 2;
 ```
 
-12.
+12. Very difficult - had to Google the answer.
 ```sql
-
+SELECT DISTINCT m.title, a.name
+FROM (SELECT movie.*
+      FROM movie
+      JOIN casting
+      ON casting.movieid = movie.id
+      JOIN actor
+      ON actor.id = casting.actorid
+      WHERE actor.name = 'Julie Andrews') AS m
+JOIN (SELECT actor.*, casting.movieid AS movieid
+      FROM actor
+      JOIN casting
+      ON casting.actorid = actor.id
+      WHERE casting.ord = 1) as a
+ON m.id = a.movieid
+ORDER BY m.title;
 ```
 
 13.
 ```sql
-
+SELECT name
+FROM actor JOIN casting ON actor.id = casting.actorid
+WHERE ord = 1
+GROUP BY name
+HAVING COUNT(*) >= 15;
 ```
 
 14.
 ```sql
-
+SELECT title, COUNT(actorid) AS actors FROM movie
+JOIN casting ON id = movieid
+WHERE yr = 1978
+GROUP BY title
+ORDER BY actors DESC, title;
 ```
 
 15.
 ```sql
-
+SELECT DISTINCT name
+FROM movie
+JOIN casting
+ON casting.movieid = movie.id
+JOIN actor
+ON actor.id = casting.actorid
+WHERE movie.id in (SELECT movieid FROM casting JOIN actor ON id =actorid WHERE 
+actor.name = 'Art Garfunkel') AND actor.name != 'Art Garfunkel';
 ```
 
-
+## Using NULL
 
 
 
