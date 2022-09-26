@@ -11,6 +11,7 @@ Table to Contents:
 [JOIN](#JOIN) <br>
 [More JOIN](#More-JOIN) <br>
 [Using NULL](#Using-NULL) <br>
+[Self JOIN](#Self-JOIN)
 
 ## SELECT basics
 
@@ -607,6 +608,98 @@ actor.name = 'Art Garfunkel') AND actor.name != 'Art Garfunkel';
 ```
 
 ## Using NULL
+
+1.
+```sql
+
+```
+
+2.
+```sql
+
+```
+
+3.
+```sql
+
+```
+
+4.
+```sql
+
+```
+
+5.
+```sql
+
+```
+
+6.
+```sql
+
+```
+
+7.
+```sql
+
+```
+
+8.
+```sql
+
+```
+
+10.
+```sql
+
+```
+
+## Self JOIN
+
+1.
+```sql
+
+```
+
+2.
+```sql
+
+```
+
+3.
+```sql
+
+```
+
+4.
+```sql
+
+```
+
+5.
+```sql
+
+```
+
+6.
+```sql
+
+```
+
+7.
+```sql
+
+```
+
+8.
+```sql
+
+```
+
+10.
+```sql
+
+```
 
 
 
