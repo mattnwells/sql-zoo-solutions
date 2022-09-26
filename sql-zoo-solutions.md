@@ -319,55 +319,55 @@ WHERE population >= ALL(SELECT population*3
 
 ## SUM and COUNT
 
-1.
+1. Show the total population of the world.
 ```sql
 SELECT SUM(population) AS 'world population'
 FROM world;
 ```
 
-2.
+2. List all the continents - just once each.
 ```sql
 SELECT DISTINCT(continent)
 FROM world;
 ```
 
-3.
+3. Give the total GDP of Africa.
 ```sql
 SELECT SUM(gdp)
 FROM world
 WHERE continent = 'Africa';
 ```
 
-4.
+4. How many countries have an area of at least 1000000.
 ```sql
 SELECT COUNT(name)
 FROM world
 WHERE area >= 1000000;
 ```
 
-5.
+5. What is the total population of ('Estonia', 'Latvia', 'Lithuania').
 ```sql
 SELECT SUM(population)
 FROM world
 WHERE name IN ('Estonia', 'Latvia', 'Lithuania');
 ```
 
-6.
+6. For each continent show the continent and number of countries.
 ```sql
 SELECT continent, COUNT(name)
 FROM world
 GROUP BY continent;
 ```
 
-7.
+7. For each continent show the continent and number of countries with populations of at least 10 million.
 ```sql
-SELECT continent, COUNT(name)
+SELECT continent, COUNT(name) AS population
 FROM world
 WHERE population >= 10000000
 GROUP BY continent;
 ```
 
-8.
+8. List the continents that have a total population of at least 100 million.
 ```sql
 SELECT continent
 FROM world
@@ -377,56 +377,56 @@ HAVING SUM(population) >= 100000000;
 
 ##JOIN
 
-1.
+1. Modify it to show the matchid and player name for all goals scored by Germany. To identify German players, check for: teamid = 'GER'.
 ```sql
 SELECT matchid, player 
 FROM goal 
 WHERE teamid = 'GER';
 ```
 
-2.
+2. Show id, stadium, team1, team2 for just game 1012.
 ```sql
 SELECT id, stadium, team1, team2
 FROM game
 WHERE id = 1012;
 ```
 
-3.
+3. Modify it to show the player, teamid, stadium and mdate for every German goal.
 ```sql
 SELECT player, teamid, stadium, mdate
 FROM game JOIN goal ON (game.id=goal.matchid)
 WHERE teamid = 'GER';
 ```
 
-4.
+4. Show the team1, team2 and player for every goal scored by a player called Mario player LIKE 'Mario%'.
 ```sql
 SELECT team1, team2, player
 FROM game JOIN goal ON (game.id = goal.matchid)
 WHERE player LIKE 'Mario%';
 ```
 
-5.
+5. Show player, teamid, coach, gtime for all goals scored in the first 10 minutes gtime<=10.
 ```sql
 SELECT player, teamid, coach, gtime
 FROM goal JOIN eteam ON (goal.teamid = eteam.id)
 WHERE gtime<=10;
 ```
 
-6.
+6. List the dates of the matches and the name of the team in which 'Fernando Santos' was the team1 coach.
 ```sql
 SELECT mdate, teamname
 FROM game JOIN eteam ON (team1 = eteam.id)
 WHERE coach LIKE 'Fernando Santos';
 ```
 
-7.
+7. List the player for every goal scored in a game where the stadium was 'National Stadium, Warsaw'
 ```sql
 SELECT player
 FROM goal JOIN game ON (game.id = goal.matchid)
 WHERE stadium = 'National Stadium, Warsaw';
 ```
 
-8.
+8. The example query shows all goals scored in the Germany-Greece quarterfinal. Instead show the name of all players who scored a goal against Germany.
 ```sql
 SELECT DISTINCT player
 FROM game JOIN goal ON matchid = id 
@@ -434,21 +434,21 @@ WHERE (team1 = 'GER' OR team2 = 'GER')
 AND teamid != 'GER';
 ```
 
-9.
+9. Show teamname and the total number of goals scored.
 ```sql
 SELECT teamname, COUNT(*)
 FROM eteam JOIN goal ON id=teamid
 GROUP BY teamname;
 ```
 
-10.
+10. Show the stadium and the number of goals scored in each stadium.
 ```sql
 SELECT stadium, COUNT(*)
 FROM goal JOIN game ON goal.matchid = game.id
 GROUP BY stadium;
 ```
 
-11.
+11. For every match involving 'POL', show the matchid, date and the number of goals scored.
 ```sql
 SELECT matchid, mdate, COUNT(*)
 FROM game JOIN goal ON matchid = id
@@ -456,7 +456,7 @@ WHERE (team1 = 'POL' OR team2 = 'POL')
 GROUP BY mdate, matchid;
 ```
 
-12.
+12. For every match where 'GER' scored, show matchid, match date and the number of goals scored by 'GER'.
 ```sql
 SELECT matchid, mdate, COUNT(*)
 FROM game JOIN goal ON matchid = id
@@ -464,30 +464,30 @@ WHERE teamid = 'GER'
 GROUP BY mdate, matchid;
 ```
 
-13.
+13. List every match with the goals scored by each team as shown. This will use "CASE WHEN" which has not been explained in any previous exercises. Sort your result by mdate, matchid, team1 and team2.
 ```sql
-SELECT mdate, team1, SUM(CASE WHEN teamid=team1 THEN 1 ELSE 0 END)score1, team2, SUM(CASE WHEN teamid=team2 THEN 1 ELSE 0 END)score2
+SELECT mdate, team1, SUM(CASE WHEN teamid = team1 THEN 1 ELSE 0 END) AS score1, team2, SUM(CASE WHEN teamid = team2 THEN 1 ELSE 0 END) AS score2
 FROM game LEFT JOIN goal ON matchid = id
 GROUP BY mdate, matchid, team1, team2;
 ```
 
 ##More JOIN
 
-1.
+1. List the films where the yr is 1962 (show id, title).
 ```sql
 SELECT id, title
 FROM movie
 WHERE yr=1962;
 ```
 
-2.
+2. Give year of 'Citizen Kane'.
 ```sql
 SELECT yr
 FROM movie
 WHERE title = 'Citizen Kane';
 ```
 
-3.
+3. List all of the Star Trek movies, include the id, title and yr (all of these movies include the words Star Trek in the title). Order results by year.
 ```sql
 SELECT id, title, yr
 FROM movie
@@ -495,28 +495,28 @@ WHERE title LIKE '%Star trek%'
 ORDER BY yr;
 ```
 
-4.
+4. What id number does the actor 'Glenn Close' have?
 ```sql
 SELECT id
 FROM actor
 WHERE name = 'Glenn Close';
 ```
 
-5.
+5. What is the id of the film 'Casablanca'.
 ```sql
 SELECT id
 FROM movie
 WHERE title = 'Casablanca';
 ```
 
-6.
+6. Obtain the cast list for 'Casablanca'. Use movieid=11768, (or whatever value you got from the previous question).
 ```sql
 SELECT actor.name
 FROM actor JOIN casting ON casting.actorid = actor.id
 WHERE casting.movieid = 27;
 ```
 
-7.
+7. Obtain the cast list for the film 'Alien'.
 ```sql
 SELECT name
 FROM actor JOIN casting ON casting.actorid = actor.id
@@ -524,7 +524,7 @@ JOIN movie ON actor.id = casting.movieid
 WHERE title = 'Alien';
 ```
 
-8.
+8. List the films in which 'Harrison Ford' has appeared
 ```sql
 SELECT movie.title
 FROM movie JOIN casting ON casting.movieid = movie.id
@@ -532,7 +532,7 @@ JOIN actor ON actor.id = casting.actorid
 WHERE actor.name = 'Harrison Ford';
 ```
 
-9.
+9. List the films where 'Harrison Ford' has appeared - but not in the starring role.
 ```sql
 SELECT title
 FROM movie JOIN casting ON movie.id = casting.movieid
@@ -540,7 +540,7 @@ JOIN actor ON casting.actorid = actor.id
 WHERE name = 'Harrison Ford' AND ord != 1;
 ```
 
-10.
+10. List the films together with the leading star for all 1962 films.
 ```sql
 SELECT title, name
 FROM movie JOIN casting ON casting.movieid = movie.id
@@ -548,17 +548,17 @@ JOIN actor ON actor.id = casting.actorid
 WHERE movie.yr = 1962 AND casting.ord = 1;
 ```
 
-11.
+11. Which were the busiest years for 'Rock Hudson', show the year and the number of movies he made each year for any year in which he made more than 2 movies.
 ```sql
 SELECT yr, COUNT(title)
 FROM movie JOIN casting ON movie.id = movieid
-JOIN actor   ON actorid=actor.id
+JOIN actor ON actorid=actor.id
 WHERE name = 'Rock Hudson'
 GROUP BY yr
 HAVING COUNT(title) >= 2;
 ```
 
-12. Very difficult - had to Google the answer.
+12. List the film title and the leading actor for all of the films 'Julie Andrews' played in *(Difficult!)*.
 ```sql
 SELECT DISTINCT m.title, a.name
 FROM (SELECT movie.*
@@ -577,7 +577,7 @@ ON m.id = a.movieid
 ORDER BY m.title;
 ```
 
-13.
+13. Obtain a list, in alphabetical order, of actors who've had at least 15 starring roles.
 ```sql
 SELECT name
 FROM actor JOIN casting ON actor.id = casting.actorid
@@ -586,16 +586,17 @@ GROUP BY name
 HAVING COUNT(*) >= 15;
 ```
 
-14.
+14. List the films released in the year 1978 ordered by the number of actors in the cast, then by title.
 ```sql
-SELECT title, COUNT(actorid) AS actors FROM movie
+SELECT title, COUNT(actorid) AS actors 
+FROM movie
 JOIN casting ON id = movieid
 WHERE yr = 1978
 GROUP BY title
 ORDER BY actors DESC, title;
 ```
 
-15.
+15. List all the people who have worked with 'Art Garfunkel'.
 ```sql
 SELECT DISTINCT name
 FROM movie
