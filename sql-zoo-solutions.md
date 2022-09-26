@@ -3,14 +3,14 @@ Solutions to [SQLZOO Tutoral](http://sqlzoo.net/wiki/SQL_Tutorial).
 
 Table to Contents:
 
-[SELECT basics](#SELECT-basics)
-[SELECT from world](#SELECT-from-world)
-[SELECT from nobel](#SELECT-from-nobel)
-[SELECT in SELECT](#SELECT-in-SELECT)
-[SUM and COUNT](#SUM-and-COUNT)
-[JOIN](#JOIN)
-[More JOIN](#More-JOIN)
-[Using NULL](#Using-NULL)
+[SELECT basics](#SELECT-basics) <br>
+[SELECT from world](#SELECT-from-world) <br>
+[SELECT from nobel](#SELECT-from-nobel) <br>
+[SELECT in SELECT](#SELECT-in-SELECT) <br>
+[SUM and COUNT](#SUM-and-COUNT) <br>
+[JOIN](#JOIN) <br>
+[More JOIN](#More-JOIN) <br>
+[Using NULL](#Using-NULL) <br>
 
 ## SELECT basics
 
