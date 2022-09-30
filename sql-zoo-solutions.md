@@ -1,9 +1,9 @@
 # SQLZoo Exercises
 Solutions to [SQLZOO Tutorals](http://sqlzoo.net/wiki/SQL_Tutorial) as of September 30th, 2022.
 
-**Table to Contents:**
+## Table to Contents:
 
-[SELECT basics](#SELECT-basics) <br>
+* [SELECT basics](#SELECT-basics) <br>
 [SELECT from world](#SELECT-from-world) <br>
 [SELECT from nobel](#SELECT-from-nobel) <br>
 [SELECT in SELECT](#SELECT-in-SELECT) <br>
