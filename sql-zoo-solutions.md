@@ -471,7 +471,7 @@ FROM game LEFT JOIN goal ON matchid = id
 GROUP BY mdate, matchid, team1, team2;
 ```
 
-##More JOIN
+## More JOIN
 
 1. List the films where the yr is 1962 (show id, title).
 ```sql
