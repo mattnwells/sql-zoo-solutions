@@ -1,7 +1,7 @@
 # SQLZoo Exercises
-Solutions to [SQLZOO Tutoral](http://sqlzoo.net/wiki/SQL_Tutorial).
+Solutions to [SQLZOO Tutorals](http://sqlzoo.net/wiki/SQL_Tutorial) as of September 30th, 2022.
 
-Table to Contents:
+**Table to Contents:**
 
 [SELECT basics](#SELECT-basics) <br>
 [SELECT from world](#SELECT-from-world) <br>
@@ -675,7 +675,8 @@ WHEN teacher.dept = 3 THEN 'Art' ELSE 'None' END
 FROM teacher;
 ```
 
-## Self JOIN -- *I found this section really difficult. I did a lot of googling to work though solutions others have found.*
+## Self JOIN
+*I found this section really difficult. I did a lot of googling to work though solutions others have found.*
 
 1. How many stops are in the database.
 ```sql
@@ -748,7 +749,7 @@ WHERE stopa.name = 'Craiglockhart';
 ```
 
 10. Find the routes involving two buses that can go from Craiglockhart to Lochend. Show the bus no. and company for the first bus, the name of the stop for the transfer, and the bus no. and company for the second bus.
--- *I was not able to solve this on my own. I found a solution [here](https://blog.actorsfit.com/a?ID=01750-635eb327-2081-4af7-8194-9b36267a8873).
+-- *I was not able to solve this on my own. I found a solution [here](https://blog.actorsfit.com/a?ID=01750-635eb327-2081-4af7-8194-9b36267a8873).*
 ```sql
 SELECT S.num, S.company, S.name, T.num, T.company 
 FROM (SELECT DISTINCT a.num, a.company, y.name FROM route a JOIN route b ON (a.num = b.num and a.company = b.company) 
