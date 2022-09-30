@@ -763,6 +763,3 @@ WHERE sx.name = 'Lochend' AND sy.name !=  'Lochend') T
 ON (S.name = T.name)
 ORDER BY S.num, S.name, T.num;
 ```
-
-
-
