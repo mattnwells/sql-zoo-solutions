@@ -4,18 +4,18 @@ Solutions to [SQLZOO Tutorals](http://sqlzoo.net/wiki/SQL_Tutorial) as of Septem
 ## Table to Contents:
 
 * [SELECT basics](#SELECT-basics) <br>
-[SELECT from world](#SELECT-from-world) <br>
-[SELECT from nobel](#SELECT-from-nobel) <br>
-[SELECT in SELECT](#SELECT-in-SELECT) <br>
-[SUM and COUNT](#SUM-and-COUNT) <br>
-[JOIN](#JOIN) <br>
-[More JOIN](#More-JOIN) <br>
-[Using NULL](#Using-NULL) <br>
-[Self JOIN](#Self-JOIN)
+* [SELECT from world](#SELECT-from-world) <br>
+* [SELECT from nobel](#SELECT-from-nobel) <br>
+* [SELECT in SELECT](#SELECT-in-SELECT) <br>
+* [SUM and COUNT](#SUM-and-COUNT) <br>
+* [JOIN](#JOIN) <br>
+* [More JOIN](#More-JOIN) <br>
+* [Using NULL](#Using-NULL) <br>
+* [Self JOIN](#Self-JOIN)
 
 ## SELECT basics
 
-1. Modify it *(the query)* to show the population of Germany.
+1. Modify it to show the population of Germany.
 ```sql
 SELECT population 
 FROM world
@@ -29,7 +29,7 @@ FROM world
 WHERE name IN ('Sweden', 'Norway', 'Denmark');
 ```
 
-3. Modify it *(the query)* to show the country and the area for countries with an area between 200,000 and 250,000.
+3. Modify it to show the country and the area for countries with an area between 200,000 and 250,000.
 ```sql
 SELECT name, area 
 FROM world
