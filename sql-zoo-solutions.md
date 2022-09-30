@@ -375,7 +375,7 @@ GROUP BY continent
 HAVING SUM(population) >= 100000000;
 ```
 
-##JOIN
+## JOIN
 
 1. Modify it to show the matchid and player name for all goals scored by Germany. To identify German players, check for: teamid = 'GER'.
 ```sql
