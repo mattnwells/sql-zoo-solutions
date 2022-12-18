@@ -72,7 +72,7 @@ FROM world
 WHERE name IN ('France', 'Germany', 'Italy');
 ```
 
-6. Show the countries which have a name that includes the word 'United
+6. Show the countries which have a name that includes the word 'United'.
 ```sql
 SELECT name
 FROM world
